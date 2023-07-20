@@ -1,0 +1,58 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity Stage2 is
+    port(
+        clk : in std_logic;
+        reset : in std_logic;
+        IR_ID_OUT: in std_logic_vector(15 downto 0);
+        IR_RR_IN: out std_logic_vector(15 downto 0);
+        OPCODE_ID: out std_logic_vector(3 downto 0);
+        RA_ID: out std_logic_vector(2 downto 0);
+        RB_ID: out std_logic_vector(2 downto 0);
+        RC_ID: out std_logic_vector(2 downto 0);
+        CONDITION_ID: out std_logic_vector(1 downto 0);
+        IMM6_ID: out std_logic_vector(15 downto 0);
+        IMM9_ID: out std_logic_vector(15 downto 0)
+        );
+end entity;
+
+
+architecture rtl of Stage2 is
+
+    component SE6 is
+        port(
+            IMM6_IN: in std_logic_vector(5 downto 0);
+            IMM6_OUT: out std_logic_vector(15 downto 0)
+        );
+    end component;
+    component SE9 is
+        port(
+            IMM9_IN: in std_logic_vector(8 downto 0);
+            IMM9_OUT: out std_logic_vector(15 downto 0)
+        );
+    end component;
+    --signal OPCODE: std_logic_vector(3 downto 0);
+    --signal RA: std_logic_vector(2 downto 0);
+    --signal RB: std_logic_vector(2 downto 0);  
+    --signal RC: std_logic_vector(2 downto 0);
+    --signal CONDITION: std_logic_vector(1 downto 0);
+    --signal IMM6: std_logic_vector(15 downto 0);
+    --signal IMM9: std_logic_vector(15 downto 0);
+
+    begin 
+    IR_RR_IN <= IR_ID_OUT;
+    OPCODE_ID<=IR_ID_OUT(15 downto 12);
+    RA_ID<= IR_ID_OUT(11 downto 9);
+    RB_ID<= IR_ID_OUT(8 downto 6);
+    RC_ID<= IR_ID_OUT(5 downto 3);
+    CONDITION_ID <= IR_ID_OUT(1 downto 0);
+    SE61: SE6 map port(
+        IMM6_IN => IR_ID_OUT(5 downto 0),
+        IMM6_OUT => IMM6_ID
+    );
+    SE91: SE9 map port(
+        IMM9_IN => IR_ID_OUT(8 downto 0),
+        IMM9_OUT => IMM9_ID
+    );
+end architecture;

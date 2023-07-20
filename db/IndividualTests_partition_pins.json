@@ -1,0 +1,409 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "RF_DA_OUT1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT1[3]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT1[4]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT1[5]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT1[6]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT1[7]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT1[8]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT1[9]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT1[10]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT1[11]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT1[12]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT1[13]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT1[14]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT1[15]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT2[3]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT2[4]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT2[5]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT2[6]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT2[7]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT2[8]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT2[9]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT2[10]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT2[11]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT2[12]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT2[13]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT2[14]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_OUT2[15]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_OUT[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_OUT[1]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_OUT[2]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_OUT[3]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_OUT[4]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_OUT[5]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_OUT[6]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_OUT[7]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_OUT[8]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_OUT[9]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_OUT[10]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_OUT[11]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_OUT[12]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_OUT[13]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_OUT[14]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_OUT[15]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_AD_OUT1[2]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_AD_OUT1[1]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_IN[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_AD_OUT1[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_IN[1]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_IN[2]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_IN[3]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_IN[4]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_IN[5]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_IN[6]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_IN[7]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_IN[8]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_IN[9]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_IN[10]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_IN[11]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_IN[12]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_IN[13]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_IN[14]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_D0_IN[15]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_AD_OUT2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_AD_OUT2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_AD_OUT2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_IN[0]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "RF_reset",
+					"strict" : false
+				},
+				{
+					"name" : "LM_IMM[2]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_AD_IN[0]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_AD_IN[2]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_WR",
+					"strict" : false
+				},
+				{
+					"name" : "LM_EN",
+					"strict" : false
+				},
+				{
+					"name" : "RF_AD_IN[1]",
+					"strict" : false
+				},
+				{
+					"name" : "LM_IMM[4]",
+					"strict" : false
+				},
+				{
+					"name" : "LM_IMM[6]",
+					"strict" : false
+				},
+				{
+					"name" : "LM_IMM[0]",
+					"strict" : false
+				},
+				{
+					"name" : "LM_IMM[5]",
+					"strict" : false
+				},
+				{
+					"name" : "LM_IMM[3]",
+					"strict" : false
+				},
+				{
+					"name" : "LM_IMM[1]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_IN[1]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_IN[2]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_IN[3]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_IN[4]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_IN[5]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_IN[6]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_IN[7]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_IN[8]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_IN[9]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_IN[10]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_IN[11]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_IN[12]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_IN[13]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_IN[14]",
+					"strict" : false
+				},
+				{
+					"name" : "RF_DA_IN[15]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

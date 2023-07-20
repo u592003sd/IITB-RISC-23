@@ -1,0 +1,65 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity ID_RR_reg is
+	port(
+        --inputs
+		clock, reset, ID_RR_EN : in std_logic;
+		imm6_in : in std_logic_vector(5 downto 0);
+        imm9_16_in,: in std_logic_vector(15 downto 0);
+        comp_in : in std_logic;
+        ra_in, rb_in, rc_in: in std_logic_vector(2 downto 0);
+        flags_in: std_logic_vector(1 downto 0);
+        op_code_in: std_logic_vector(3 downto 0);
+        --outputs
+        imm6_out : out std_logic_vector(5 downto 0); 
+		imm9_16_out : out std_logic_vector(15 downto 0);
+        comp_out : out std_logic;
+        ra_out, rb_out, rc_out: out std_logic_vector(2 downto 0);
+        flags_out: std_logic_vector(1 downto 0);
+        op_code_out: std_logic_vector(3 downto 0)
+	);
+end entity;
+
+architecture reg of IF_ID_reg is
+	signal buffer_1, buffer_2: std_logic_vector(15 downto 0);
+    signal buffer_3 : std_logic;
+    signal buffer_4, buffer_5, buffer_6: out std_logic_vector(2 downto 0);
+    signal buffer_7: std_logic_vector(1 downto 0);
+    signal buffer_8: std_logic_vector(3 downto 0);
+begin	
+	
+	buffer_1 <= imm6_in when IF_ID_EN = '1';
+    buffer_2 <= imm9_16_in when IF_ID_EN = '1';
+    buffer_3 <= comp_in when IF_ID_EN = '1';
+    buffer_4 <= ra_in when IF_ID_EN = '1';
+    buffer_5 <= rb_in when IF_ID_EN = '1';
+    buffer_6 <= rc_in when IF_ID_EN = '1';
+    buffer_7 <= flags_in when IF_ID_EN = '1';
+    buffer_8 <= op_code_in when IF_ID_EN = '1';
+
+	write: process(clock,IF_ID_EN,reset,imm6_in,imm9_16_in,comp_in,ra_in,rb_in,rc_in,flags_in,op_code_in)
+    begin
+		if(reset = '1') then 
+			imm6_out <= (others => '0');
+            imm9_16_out <= (others => '0');
+            comp_out <= (others => '0');
+            ra_out <= (others => '0');
+            rb_out <= (others => '0');
+            rc_out <= (others => '0');
+            flags_out <= (others => '0');
+            op_code_out <= (others => '0');
+        elsif (clk'event and clk = '0') then  
+            imm6_out <= buffer_1;
+            imm9_16_out <= buffer_2;
+            comp_out <= buffer_3;
+            ra_out <= buffer_4;
+            rb_out <= buffer_5;
+            rc_out <= buffer_6;
+            flags_out <= buffer_7;
+            op_code_out <= buffer_8;      
+        end if;
+    end process write;
+	
+end architecture;

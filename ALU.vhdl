@@ -1,0 +1,46 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity ALU is
+    port (
+        ALU_A: in std_logic_vector(15 downto 0);
+        ALU_B: in std_logic_vector(15 downto 0);
+		alu_control: in std_logic;
+        C_in: in std_logic;
+        ALU_C: out std_logic_vector(15 downto 0);
+		C_out: out std_logic;
+		Z_out: out std_logic
+    ) ;
+end ALU;
+
+--Control 00 => add, 01 => bitwise XOR, 10 => bitwise NAND
+
+architecture a1 of ALU is
+	signal op1 : std_logic_vector(15 downto 0);
+	signal x : std_logic := '0';
+	signal C_init : std_logic := '0';
+begin
+	alu : process( ALU_A, ALU_B, alu_control)
+	begin
+        if (alu_control = '0') then
+			C_init<=C_in;
+			for i in 0 to 15 loop
+			op1(i)<= ALU_A(i) XOR ALU_B(i) XOR C_init;
+			C_init <= ( ALU_A(i) AND ALU_B(i) ) OR (C_init AND (ALU_A(i) XOR ALU_B(i)));
+			end loop;
+
+		elsif (alu_control = '1') then
+			for i in 0 to 15 loop
+				op1(i)<= ALU_A(i) NAND ALU_B(i);
+			end loop;
+		end if;
+		ALU_C <= op1;
+		C_out <= C_init;
+		x <= op1(0);
+		for i in 1 to 15 loop
+			x <= x or op1(i);
+		end loop;
+	
+		Z_out <= not x;
+	end process ;
+end a1 ;

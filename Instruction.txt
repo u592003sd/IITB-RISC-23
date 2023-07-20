@@ -1,0 +1,45 @@
+
+
+Instruction                   PC next                      Comments
+
+JRI
+
+
+component MA_WB_reg is
+        port(
+            clock, reset, MA_WB_EN : in std_logic;
+            result_in, imm9_16_in, DM_D_OUT_in : in std_logic_vector(15 downto 0);
+            ra_in, rb_in, rc_in : in std_logic_vector(2 downto 0);
+            OP_code_in: in std_logic_vector(3 downto 0);
+            flags_in: in std_logic_vector(1 downto 0);
+    
+            result_out, imm9_16_out, DM_D_OUT_out : out std_logic_vector(15 downto 0);
+            ra_out, rb_out, rc_out : out std_logic_vector(2 downto 0);
+            OP_code_out: out std_logic_vector(3 downto 0);
+            flags_out: out std_logic_vector(1 downto 0)
+        );
+
+MA_WB: MA_WB_reg port map(
+        clk => clk,
+        reset => reset,
+		MA_WB_EN => MA_WB_EN,
+        operand1_EX => operand1_EX,
+        operand2_EX => operand2_EX,
+        imm6_EX => imm6_EX,
+        imm9_16_EX => imm9_16_EX,
+        comp_EX => comp_EX,
+        ra_EX => ra_EX,
+        rb_EX => rb_EX,
+        rc_EX => rc_EX,
+        OPCODE_MA => OPCODE_MA,
+        DM_D_OUT => DM_D_OUT,
+        result_WB => result_WB,
+        imm9_16_WB => imm9_16_WB,
+        DM_D_OUT_WB => DM_D_OUT_WB,
+        ra_WB => ra_WB,
+        rb_WB => rb_WB,
+        rc_WB => rc_WB,
+        OPCODE_WB => OPCODE_WB,
+        flags_WB => flags_WB,
+        Condition_WB => Condition_WB
+    );

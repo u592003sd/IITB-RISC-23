@@ -1,0 +1,35 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity M_CONTROl_UNIT is
+port(
+    clk : in std_logic;
+    OPCODE: in std_logic_vector(3 downto 0);
+    IMM9_16: in std_logic_vector(15 downto 0);
+
+    BUBBLE_CTRL_M: out std_logic;
+    M_INDEX: out integer range 7 to 0;
+    M_M_EN: out std_logic;
+);
+end M_CONTROl_UNIT;
+
+architecture Behavioral of LM_CONTROl_UNIT is
+    
+
+begin
+    process(clk,OPCODE,IMM9_16)
+    variable x: integer range 0 to 8:=0;
+    begin
+        if(OPCODE(3 downto 1) = "011" ) then 
+            BUBBLE_CTRL_M <= '1';
+            while x<8 loop
+                if (clk'event and clk='1') then
+                    M_INDEX <= x;
+                    M_M_EN <= IMM9_16(x);
+                    x := x + 1;
+                end if;
+            end loop;
+            BUBBLE_CTRL_M <= '0';
+        else
+            BUBBLE_CTRL_M <= '0';
+        end if;

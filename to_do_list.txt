@@ -1,0 +1,113 @@
+#1 : PC in pipelining register. -- DONE
+#2 : Separate mux signals among pc_adder and ALU. -- DONE
+#3 : Adding control signals in execute Stage. ---DONE
+#4 : Tracing all bypass inputs. --DONE
+#5 : Stage 5 is remaining.	---DONE
+#6 : RF Enable and CLk and Reset.	---DONE
+#7 : Make Testbench and Clock
+#8 : Testing basic ADD
+
+Archit Style
+TO DO
+#1 : CARRY_CTRL in Stage 4- ---done
+#2 : ZERO_CTRL in Stage 4- ---done
+#3 : DM_READ_MUX_CTRL in Stage 5 in logic not implemented  (--To Be removed altogether)
+#4 : RESULT_WB is not allocated in Stage 5			---DONE
+#5 : Memory mein data           
+#6 : WB_DA_MUX_CTRL in stage 6 logic is not implemented --DONE
+#7 : AND_NAND_EN in stage 6 is not outputed --DONE
+#8 : Branch in and branch out in MA_WB --DONE
+#9 : Stage6 inputs of extra not linked. --DONE
+#10 : Writeback not linked to other stgaes --DONE
+#11 : Carry and Zero kahi pass nahi ho rahe --DONE
+#12 : Multiple instr realize karna hai --DONE
+
+
+To Recheck and Confirm
+#1 : In ID_RR_reg the inputs to the process should not cause any trouble	(---inputs not required) ---done
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+signal IR_ID_IN: std_logic_vector(15 downto 0);
+    signal IR_ID_OUT: std_logic_vector(15 downto 0);
+    signal IR_RR_IN: std_logic_vector(15 downto 0);
+    signal OPCODE: std_logic_vector(3 downto 0);
+    signal RA_ID_RR: std_logic_vector(2 downto 0);
+    signal RB_ID_RR: std_logic_vector(2 downto 0);
+    signal RC_ID_RR: std_logic_vector(2 downto 0);
+    signal CONDITION: std_logic_vector(1 downto 0);
+    signal IMM6_ID_RR_IN: std_logic_vector(5 downto 0);
+    signal IMM6_ID_RR_OUT: std_logic_vector(5 downto 0);
+    signal IMM9_ID_RR_IN: std_logic_vector(15 downto 0);
+    signal IMM9_ID_RR_OUT: std_logic_vector(15 downto 0);
+    signal IM_EN: std_logic;
+    signal IF_ID_EN: std_logic;
+    signal RF_D0_IF: std_logic_vector(15 downto 0);
+    signal PC_Next: std_logic_vector(15 downto 0);
+    signal OPCODE_RR: std_logic_vector(3 downto 0);
+    signal RA_RR: std_logic_vector(2 downto 0);
+    signal RB_RR: std_logic_vector(2 downto 0);
+    signal RC_RR: std_logic_vector(2 downto 0);
+    signal RA_A_EX: std_logic_vector(2 downto 0);
+    signal RB_A_EX: std_logic_vector(2 downto 0);
+    signal RC_A_EX: std_logic_vector(2 downto 0);
+    signal RA_D_EX: std_logic_vector(15 downto 0);
+    signal RB_D_EX: std_logic_vector(15 downto 0);
+    signal OPCODE_EX: std_logic_vector(3 downto 0);
+    signal PC_REG: std_logic_vector(15 downto 0);
+    signal RF_D0_OUT: std_logic_vector(15 downto 0);
+    signal WB_AD: std_logic_vector(2 downto 0);
+    signal WB_DA: std_logic_vector(15 downto 0);
+    signal OPCODE_MA: std_logic_vector(3 downto 0);
+    signal OPCODE_WB: std_logic_vector(3 downto 0);
+    signal result_WB: std_logic_vector(15 downto 0);
+    signal imm9_16_WB: std_logic_vector(15 downto 0);
+    signal DM_D_OUT_WB: std_logic_vector(15 downto 0);
+    signal ra_WB: std_logic_vector(2 downto 0);
+    signal rb_WB: std_logic_vector(2 downto 0);
+    signal rc_WB: std_logic_vector(2 downto 0);
+    signal flags_WB: std_logic_vector(1 downto 0);
+    signal Condition_WB: std_logic_vector(1 downto 0);
+    signal RF_AD_WB_RR: std_logic_vector(2 downto 0);
+    signal RF_DA_WB_RR: std_logic_vector(15 downto 0);
+	signal MA_WB_EN: std_logic;
+    signal WB_EN: std_logic;
+    signal EX_MA_EN: std_logic; 

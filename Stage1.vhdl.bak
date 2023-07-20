@@ -1,0 +1,44 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity Stage1 is
+    port(
+        clk : in std_logic;
+        reset : in std_logic;
+        IM_EN: in std_logc;
+        RF_D0: in std_logic_vector(15 downto 0);
+        IR_ID : out std_logic_vector(15 downto 0);
+        PC_Next: out std_logic_vector(15 downto 0)
+        );
+end entity;
+
+architecture Behavioral of Stage1 is
+    
+    component instruction_memory is
+        port(
+            IM_AD_OUT1 : in std_logic_vector(15 downto 0);
+            IM_DA_OUT1 : out std_logic_vector(15 downto 0)
+        );
+    end component;
+    
+    component  PC_adder is
+        port (
+            PC_A: in std_logic_vector(15 downto 0);
+            PC_B: in std_logic_vector(15 downto 0);
+            PC_C: out std_logic_vector(15 downto 0);
+        );
+    end component;
+    begin
+
+    INSTR_MEM1: instruction_memory map port(
+        IM_AD_OUT1 => RF_D0,
+        IM_DA_OUT1 => IR_ID
+    );
+    PC_AD: PC_adder map port(
+        PC_A => RF_D0,
+        PC_B => "0000000000000010",
+        PC_C => PC_Next
+    );
+
+end architecture;
+```

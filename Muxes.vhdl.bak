@@ -1,0 +1,196 @@
+library ieee;
+use ieee.std_logic_1164.all;
+
+entity MUX_4x16 is 
+    port(
+        --select signal
+        sel : in std_logic_vector(1 downto 0);
+        -- input data
+        P0 : in std_logic_vector(15 downto 0);
+        P1: in std_logic_vector(15 downto 0);
+        P2: in std_logic_vector(15 downto 0);
+        P3: in std_logic_vector(15 downto 0);
+        --output data
+        outp : out std_logic_vector(15 downto 0)
+    );
+end MUX_4x16;
+
+architecture arch of MUX_4x16 is    
+    signal OUT_IN_TEMP: std_logic_vector(15 downto 0);
+begin
+    --writing to register when write_enable is set
+    MUX: process(P0, P1, P2, P3, OUT_IN_TEMP)
+    
+    begin
+	case sel is
+        when "00" =>
+        OUT_IN_TEMP <= P0;
+        when "01" =>
+        OUT_IN_TEMP <= P1;
+        when "10" =>
+        OUT_IN_TEMP <= P2;
+        when "11" =>
+        OUT_IN_TEMP <= P3;
+    end case;    
+    end process MUX;
+	outp <= OUT_IN_TEMP; 
+end arch;
+
+entity MUX_2x16 is 
+    port(
+        --select signal
+        sel : in std_logic_vector(1 downto 0);
+        -- input data
+        P0 : in std_logic_vector(15 downto 0);
+        P1: in std_logic_vector(15 downto 0);
+        --output data
+        outp : out std_logic_vector(15 downto 0)
+    );
+end MUX_2x16;
+
+architecture arch of MUX_2x16 is    
+    signal OUT_IN_TEMP: std_logic_vector(15 downto 0);
+begin
+    --writing to register when write_enable is set
+    MUX: process(P0, P1, OUT_IN_TEMP)
+    
+    begin
+	case sel is
+        when "00" =>
+        OUT_IN_TEMP <= P0;
+        when "01" =>
+        OUT_IN_TEMP <= P1;
+    end case;    
+    end process MUX;
+	outp <= OUT_IN_TEMP; 
+end arch;
+
+entity MUX_2x1 is 
+    port(
+        --select signal
+        sel : in std_logic_vector(1 downto 0);
+        -- input data
+        P0 : in std_logic;
+        P1: in std_logic;
+        --output data
+        outp : out std_logic
+    );
+end MUX_2x1;
+
+architecture arch of MUX_2x1 is    
+    signal OUT_IN_TEMP: std_logic;
+begin
+    --writing to register when write_enable is set
+    MUX: process(P0, P1, OUT_IN_TEMP)
+    
+    begin
+	case sel is
+        when "00" =>
+        OUT_IN_TEMP <= P0;
+        when "01" =>
+        OUT_IN_TEMP <= P1;
+    end case;    
+    end process MUX;
+	outp <= OUT_IN_TEMP; 
+end arch;
+
+
+entity MUX_4x8 is 
+    port(
+        --select signal
+        sel : in std_logic_vector(1 downto 0);
+        -- input data
+        P0 : in std_logic_vector(7 downto 0);
+        P1: in std_logic_vector(7 downto 0);
+        P2: in std_logic_vector(7 downto 0);
+        P3: in std_logic_vector(7 downto 0);
+        --output data
+        outp : out std_logic_vector(7 downto 0)
+    );
+end MUX_4x8;
+
+architecture arch of MUX_4x8 is    
+    signal OUT_IN_TEMP: std_logic_vector(7 downto 0);
+begin
+    --writing to register when write_enable is set
+    MUX: process(P0, P1, P2, P3, OUT_IN_TEMP)
+    
+    begin
+	case sel is
+        when "00" =>
+        OUT_IN_TEMP <= P0;
+        when "01" =>
+        OUT_IN_TEMP <= P1;
+        when "10" =>
+        OUT_IN_TEMP <= P2;
+        when "11" =>
+        OUT_IN_TEMP <= P3;
+    end case;    
+    end process MUX;
+	outp <= OUT_IN_TEMP; 
+end arch;
+
+entity MUX_4x3 is 
+    port(
+        --select signal
+        sel : in std_logic_vector(1 downto 0);
+        -- input data
+        P0 : in std_logic_vector(2 downto 0);
+        P1: in std_logic_vector(2 downto 0);
+        P2: in std_logic_vector(2 downto 0);
+        P3: in std_logic_vector(2 downto 0);
+        --output data
+        outp : out std_logic_vector(2 downto 0)
+    );
+end MUX_4x3;
+
+architecture arch of MUX_4x3 is    
+    signal OUT_IN_TEMP: std_logic_vector(2 downto 0);
+begin
+    --writing to register when write_enable is set
+    MUX: process(P0, P1, P2, P3, OUT_IN_TEMP)
+    
+    begin
+	case sel is
+        when "00" =>
+        OUT_IN_TEMP <= P0;
+        when "01" =>
+        OUT_IN_TEMP <= P1;
+        when "10" =>
+        OUT_IN_TEMP <= P2;
+        when "11" =>
+        OUT_IN_TEMP <= P3;
+    end case;    
+    end process MUX;
+	outp <= OUT_IN_TEMP; 
+end arch;
+
+
+entity MUX_2x8 is 
+    port(
+        --select signal
+        sel : in std_logic_vector(1 downto 0);
+        -- input data
+        P0 : in std_logic_vector(7 downto 0);
+        P1: in std_logic_vector(7 downto 0);
+        --output data
+        outp : out std_logic_vector(7 downto 0)
+    );
+end MUX_2x8;
+
+architecture arch of MUX_2x8 is    
+    signal OUT_IN_TEMP: std_logic_vector(7 downto 0);
+begin
+    --writing to register when write_enable is set
+    MUX: process(P0, P1, OUT_IN_TEMP)
+    
+    begin
+	case sel is
+        when "00" =>
+        OUT_IN_TEMP <= P0;
+        when "01" =>
+        OUT_IN_TEMP <= P1;
+    end case;    
+    end process MUX;
+	outp <= OUT_IN_TEMP; 
+end arch;

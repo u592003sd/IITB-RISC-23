@@ -1,0 +1,79 @@
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity RR_EX_reg is
+	port(
+		clock, reset, RR_EX_EN : in std_logic;
+		PC_IN, operand1_in, operand2_in : in std_logic_vector(15 downto 0); 
+		imm6_in : in std_logic_vector(5 downto 0); 
+		imm9_16_in : in std_logic_vector(15 downto 0);
+		comp_in : in std_logic;
+		ra_in, rb_in, rc_in : in std_logic_vector(2 downto 0);
+		OP_code_in: in std_logic_vector(3 downto 0);
+		flags_in: in std_logic_vector(1 downto 0);
+
+		PC_OUT, operand1_out, operand2_out : out std_logic_vector(15 downto 0); 
+		imm6_out : out std_logic_vector(5 downto 0); 
+		imm9_16_out : out std_logic_vector(15 downto 0);
+		comp_out : out std_logic;
+		ra_out, rb_out, rc_out : out std_logic_vector(2 downto 0);
+		OP_code_out: out std_logic_vector(3 downto 0);
+		flags_out: out std_logic_vector(1 downto 0)
+	);
+end entity;
+
+architecture reg of RR_EX_reg is
+	signal buffer_11, buffer_1, buffer_2 : std_logic_vector(15 downto 0);
+	signal buffer_3 : std_logic_vector(5 downto 0); 
+	signal buffer_4: std_logic_vector(15 downto 0);
+	signal buffer_5 : std_logic;
+	signal buffer_6, buffer_7, buffer_8 : std_logic_vector(2 downto 0);
+	signal buffer_9: std_logic_vector(3 downto 0);
+	signal buffer_10: std_logic_vector(1 downto 0);
+begin	
+	
+	buffer_11 <= PC_IN when RR_EX_EN = '1';
+	buffer_1 <= operand1_in when RR_EX_EN = '1';
+	buffer_2 <= operand2_in when RR_EX_EN = '1';
+	buffer_3 <= imm6_in when RR_EX_EN = '1';
+	buffer_4 <= imm9_16_in when RR_EX_EN = '1';
+	buffer_5 <= comp_in when RR_EX_EN = '1';
+	buffer_6 <= ra_in when RR_EX_EN = '1';
+	buffer_7 <= rb_in when RR_EX_EN = '1';
+	buffer_8 <= rc_in when RR_EX_EN = '1';
+	buffer_9 <= OP_code_in when RR_EX_EN = '1';
+	buffer_10 <= flags_in when RR_EX_EN = '1';
+
+	
+	write: process(clock,  reset)--,RR_EX_EN, PC_IN, operand1_in, operand2_in, imm6_in, imm9_16_in, comp_in, ra_in, rb_in, rc_in, OP_code_in, flags_in)
+    begin
+		if(reset = '1') then
+			PC_OUT <= (others => '0'); 
+			operand1_out <= (others => '0');
+			operand2_out <= (others => '0');
+			imm6_out <= (others => '0');
+			imm9_16_out <= (others => '0');
+			comp_out <= '0';
+			ra_out <= (others => '0');
+			rb_out <= (others => '0');
+			rc_out <= (others => '0');
+			OP_code_out <= (others => '0');
+			flags_out <= (others => '0');
+
+        elsif (clock'event and clock = '0') then
+			PC_OUT <= buffer_11;  
+			operand1_out <= buffer_1;
+			operand2_out <= buffer_2;
+			imm6_out <= buffer_3;
+			imm9_16_out <= buffer_4;
+			comp_out <= buffer_5;
+			ra_out <= buffer_6;
+			rb_out <= buffer_7;
+			rc_out <= buffer_8;
+			OP_code_out <= buffer_9;
+			flags_out <= buffer_10;
+        end if;
+    end process write;
+	
+end architecture;
